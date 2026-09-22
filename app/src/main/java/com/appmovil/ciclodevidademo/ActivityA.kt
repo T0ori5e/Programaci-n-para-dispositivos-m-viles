@@ -17,18 +17,24 @@ class ActivityA : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        val btnContador = findViewById<Button>(R.id.btnContador)
+        val btnAumentar = findViewById<Button>(R.id.btnAumentar)
+        val btnDisminuir = findViewById<Button>(R.id.btnDisminuir)
         val txtContador = findViewById<TextView>(R.id.txtContador)
 
         contadorActual = savedInstanceState?.getInt("contador") ?: 0
 
         txtContador.text = "Contador: $contadorActual"
 
-        btnContador.setOnClickListener {
+        btnAumentar.setOnClickListener {
             contadorActual++
             txtContador.text = "Contador: $contadorActual"
         }
 
+        btnDisminuir.setOnClickListener {
+            contadorActual--
+            txtContador.text = "Contador: $contadorActual"
+        }
+        
         Log.d(TAG, "ActivityA - onCreate - instancia: ${this.hashCode()}")
     }
 
